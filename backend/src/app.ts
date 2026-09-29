@@ -44,7 +44,6 @@ app.post("/api/payments", async (req, res) => {
 
   const operationId = randomUUID();
 
-  // Todas las respuestas utilizan la misma estructura.
   function response(status: "approved" | "rejected" | "error", detail: string) {
     return {
       id: operationId,
@@ -104,7 +103,7 @@ app.post("/api/payments", async (req, res) => {
   }
 
   if (simulation === "timeout") {
-    // El frontend tendrá un límite de espera menor a 10 segundos.
+    // Espera 10 segundos para superar el timeout de 5 segundos del cliente
     await new Promise((resolve) => setTimeout(resolve, 10000));
 
     if (!res.destroyed) {

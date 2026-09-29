@@ -12,14 +12,12 @@ export type User = {
 const USER_KEY = "snail-user";
 const SESSION_KEY = "snail-session";
 
-// Convierte bytes en texto para poder guardarlos.
 function toHex(bytes: Uint8Array): string {
   return Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0")).join(
     "",
   );
 }
 
-// Deriva un hash de la contraseña con una sal aleatoria.
 async function hashPassword(password: string, salt: string): Promise<string> {
   const encoder = new TextEncoder();
 
@@ -175,7 +173,7 @@ export function applyPayment(payment: PaymentResponse): User {
 
   const payments = user.payments ?? [];
 
-  // Una misma operación nunca se acredita dos veces.
+  // Evita que se acredite de nuevo una operacion ya registrada
   if (payments.some((item) => item.id === payment.id)) {
     return user;
   }
@@ -192,7 +190,7 @@ export function applyPayment(payment: PaymentResponse): User {
     payments: [...payments, payment],
   };
 
-  // Guarda saldo y comprobante juntos, incluyendo los datos ficticios.
+  // Guarda el saldo y el comprobante en una sola escritura
   localStorage.setItem(USER_KEY, JSON.stringify(updatedUser));
 
   return updatedUser;
