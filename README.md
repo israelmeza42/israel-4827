@@ -198,13 +198,18 @@ Un despliegue requiere configurar el enrutamiento de /api al backend.
 
 ## Uso de inteligencia artificial
 
-Se utilizó ChatGPT/Codex como apoyo para analizar requisitos,
-proponer la estructura, generar código, corregir errores y preparar
+Utilicé ChatGPT/Codex como apoyo para analizar los requisitos,
+organizar el proyecto, generar código, resolver errores y preparar
 pruebas y documentación.
 
-El desarrollo se realizó de forma guiada, incorporando el código
-por etapas. La validación incluyó pruebas manuales, pruebas
-automatizadas, compilación y revisión con ESLint.
+Integré la solución por etapas en Visual Studio Code y comprobé
+su funcionamiento en el navegador. Probé el registro, el inicio
+y cierre de sesión, la persistencia del saldo y los distintos
+resultados de las recargas. También solicité ajustes de interfaz
+y apliqué correcciones con apoyo de la herramienta.
+
+Para validar el resultado, ejecuté las pruebas automatizadas,
+la compilación del frontend y backend y la revisión con ESLint.
 
 ## Versiones utilizadas
 
